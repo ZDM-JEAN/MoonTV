@@ -1,24 +1,4 @@
 {
-  "SiteConfig": {
-    "title": "MoonTV",
-    "logo": "/logo.png",
-    "announcement": ""
-  },
-  "SourceConfig": {
-    "Sources": []
-  },
-  "UserConfig": {
-    "Users": []
-  },
-  "CategoryConfig": {
-    "Categories": []
-  },
-  "DoubanConfig": {
-    "enabled": true,
-    "categories": []
-  },
-  "SkipConfig": {
-    "skip_start_list": [],
-    "skip_end_list": []
-  }
+  "api_site": {},
+  "custom_category": []
 }
