@@ -57,13 +57,7 @@ export function getAuthInfoFromBrowserCookie(): {
     }
 
     // 处理可能的双重编码
-    let decoded = decodeURIComponent(authCookie);
-
-    // 如果解码后仍然包含 %，说明是双重编码，需要再次解码
-    if (decoded.includes('%')) {
-      decoded = decodeURIComponent(decoded);
-    }
-
+    const decoded = decodeURIComponent(authCookie);
     const authData = JSON.parse(decoded);
     return authData;
   } catch (error) {
