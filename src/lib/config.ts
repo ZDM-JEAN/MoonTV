@@ -372,6 +372,17 @@ export async function getConfig(): Promise<AdminConfig> {
     const ownerUser = process.env.USERNAME || '';
     // 检查配置中的站长用户是否和 USERNAME 匹配，如果不匹配则降级为普通用户
     let containOwner = false;
+    
+    // --- 开始最终修复 ---
+    // 防御式编程：确保 UserConfig 和 Users 数组存在，防止因数据损坏而崩溃
+    if (!adminConfig.UserConfig) {
+      adminConfig.UserConfig = { Users: [], AllowRegister: false };
+    }
+    if (!adminConfig.UserConfig.Users) {
+      adminConfig.UserConfig.Users = [];
+    }
+    // --- 结束最终修复 ---
+
     adminConfig.UserConfig.Users.forEach((user) => {
       if (user.username !== ownerUser && user.role === 'owner') {
         user.role = 'user';
